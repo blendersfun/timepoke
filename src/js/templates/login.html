@@ -1,0 +1,40 @@
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="inputUser">Username</label>
+    <div class="controls">
+      <input type="text" id="inputEmail">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword">Password</label>
+    <div class="controls">
+      <input type="password" id="inputPassword">
+    </div>
+  </div>
+  {{#if isNew}}
+  <div class="control-group">
+    <label class="control-label" for="inputPasswordConfirm">Confirm Password</label>
+    <div class="controls">
+      <input type="password" id="inputPasswordConfirm">
+    </div>
+  </div>
+  {{else}}
+  <div class="control-group">
+    <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox" checked> Stay logged in forever
+      </label>
+    </div>
+  </div>
+  {{/if}}
+  <div class="control-group">
+    <div class="controls">
+      {{#if isNew}}
+        <button id="createUser" class="btn">Start</button>
+        {{else}}
+        <button id="signIn" class="btn">Sign in</button>
+        <button id="new" class="btn btn-link">New?</button>
+      {{/if}}
+    </div>
+  </div>
+</form>

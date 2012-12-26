@@ -1,0 +1,18 @@
+
+ Timepoke Log - A log documenting what I did to create time poke.
+  Sat, 22 Dec 2012
+   Spent most of the day brainstorming the features I wanted, and
+   thought a bit about the stack I want to use. Worked on business
+   cases, table design, wireframes. Showed Soren. He proposed a
+   different approach which simplified things. I agreed it seemed
+   better so I took another shot at wireframes and then did new
+   tables based on them, and finally code organization.
+  Tue, 25 Dec 2012
+   Gathering assets, external libraries. Laying out the directory
+   structure.
+  Wed, 26 Dec 2012
+   Got the login page basically how I want it. No server side 
+   components yet. Compiling less code with twitter recess:
+     recess main.less --compile > main.css
+   No build scripts of any kind yet. Also, ready for my first
+   git checkin.

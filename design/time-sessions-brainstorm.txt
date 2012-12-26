@@ -1,0 +1,245 @@
+
+ 1. Haircut
+ 2. Oil Light Check
+ 3. Breakfast
+ 4. Travel to Portland
+ 5. Work on Data Grid
+ 6. Work on Time Tracking App
+
+ Time:
+  Manipulating a Time Session
+   1. Create a new time session.
+   2. Pause that time session.
+   3. Unpause that time session.
+   4. Describe what you're doing.
+   5. End a time session.
+   6. Restart a ended time session.
+   7. Categorize time session.
+  Reviewing Existing Time Sessions
+   1. List time sessions in reverse chronological order.
+   2. List time sessions within a specific time range.
+   3. View a time session visually (probably using d3.js):
+       a. A timeline, with appropriate time interval markers.
+       b. Colors indicating pause times vs active times.
+       c. Descriptions pointing to various spots on the timeline.
+       d. Description details, may be viewed by hovering over the description.
+   4. Filter time sessions by category
+
+ Tables:
+  Users:
+   Username (email)
+   Password
+  Sessions:
+   Name
+   Description
+   User Id
+   Is Active
+   Note Id
+  Checkpoints:
+   Time 
+   Type // toggle, note
+   Session Id
+   Note Id
+  Notes:
+   Note <-- can include markdown
+  Categories:
+   Name
+   Description
+   User Id
+
+ Screens:
+Login:-------------------------------------------------------------------------------
+
+TIME POKE! 
+  Get ready to poke some time!
+
+ Who You?
+  user: []
+  pass: []
+  [login] new?
+
+Login(new):------------------------------------------------------------------
+
+ Be known to us! Welcome!
+  user: []
+  pass: []
+  confirm pass: []
+  [go time!]
+
+Home:------------------------------------------------------------------------------
+
+ [new session]
+ 
+ Active Sessions:
+  ---------------------------------------------------------------------------------------
+  | Summary | Started             | Logged | Notes | Categories |                       |
+  |---------|---------------------|--------|-------|------------|-----------------------|
+  |         | Sunday, 22 Dec 2012 | 1h 20m | 3     | Work       | [start/stop] [finish] |
+  |-------------------------------------------------------------------------------------|
+
+ Past Sessions:
+  Range: [startdate] [enddate] [?] Categories: [categories]
+
+  --------------------------------------------------------------------------------------
+  | Summary | Started               | Logged | Notes | Categories |                    |
+  |---------|-----------------------|--------|-------|------------|--------------------|
+  |         | Thursday, 20 Dec 2012 | 1h 20m | 1     | Work       | [reactivate] [die] |
+  --------------------------------------------------------------------------------------
+
+ Range Selection ? Note:
+  Keyboard Interaction for Selecting Date Range:
+   Hold Ctrl: Page through time using arrows
+   Hold Shift: Keep range fixed
+   Up/Down: Add/subtract a week
+   Fwd/Back: Add/subtract a day
+
+ Large note editor ? Note:
+  Use <a>markdown<a/> for pretty notes.
+  A preview of the result displays to the right.
+
+View Session:----------------------------------------------------------------------
+
+  [Start]/[Pause]/[Resume]/[Finish]
+
+  Thursday, 20 Dec 2012, 11:22am - 1:45pm               [Edit]
+  [Categories] - 18h 25m 33s (paused)       
+
+  Summary:
+  ...
+
+  Notes:                                                 [New]
+   Thursday, 20 Dec 2012, 9:29pm
+     ...
+   Thursday, 20 Dec 2012, 11:22am
+     ...
+
+View Session(Editing):-------------------------------------------------------------
+
+  [Start]/[Pause]/[Resume]/[Finish]
+
+  Thursday, 20 Dec 2012, 11:22am - 1:45pm               [Edit]
+  [Categories] - 18h 25m 33s (paused)           
+
+  Summary:                    [?]
+  [                             ]         --preivew--
+  [                             ]
+  [                             ]
+  [save][cancel]
+
+  Notes:                                                 [New]
+   Thursday, 20 Dec 2012, 9:29pm
+     ...
+   Thursday, 20 Dec 2012, 11:22am
+     ...
+
+View Session(New-Note):------------------------------------------------------
+
+  [Start]/[Pause]/[Resume]/[Finish]
+
+  Thursday, 20 Dec 2012, 11:22am - 1:45pm               [Edit]
+  [Categories] - 18h 25m 33s (paused)       
+
+  Description:
+  ...
+
+  Notes:                      [?]
+  [                             ]         --preivew--
+  [                             ]
+  [                             ]
+  [save][cancel]
+
+   Thursday, 20 Dec 2012, 9:29pm
+     ...
+   Thursday, 20 Dec 2012, 11:22am
+     ...
+
+ Code Organization
+  Views
+   Pages
+     Home
+     Session
+   Pieces
+  Controllers
+   App
+  Models
+   User
+   Active Sessions
+   Past Sessions
+    Checkpoints
+    Notes
+    Categories
+   All Categories
+
+
+ALTERNATE DESIGN
+
+Home:------------------------------------
+
+Time Range: [     ] [     ]  today   this week   last two weeks   last month
+
+Activites today / this week / Sunday, 11 - Thursday 12 May 2013:
+  Work:        12h 21m 33s      [start/stop]   [add note]   // ordered by most recently interacted with desc
+  Exercise:    12h 21m 33s      [start/stop]   [add note]
+  Driving:     12h 21m 33s      [start/stop]   [add note]
+
+  [New Activity] [Manage Activities](de-emph)
+
+Activity:----------------------------------
+
+Work: 
+
+ Time Range: [     ] [      ]   today   this week   last two weeks   last month  
+
+ Total: 12h 21m 33s
+
+ View:   sessions    days    weeks    months
+
+  Week of May 10 - May 17: [add note]
+
+   Tuesday, 11 May 2012, 11:30am - 2:45pm | 3h 21m | [add note]
+   Tuesday, 11 May 2012, 11:30am - 2:45pm | 3h 21m | Hi I'm a happy note!... [edit]
+
+
+ Code Organization
+  Views
+   Pages
+    Home
+    ReviewActivity
+   Pieces
+    TimeRangeSelector
+    TimeRangeDisplay
+    DurationDisplay
+    AggregatedSessions
+    SingleLineNoteEditor
+    MultiLineNoteEditor
+  Controllers
+   App
+  Models
+   User
+   Activities
+    Sessions
+    Notes
+
+ Tables
+  Users
+   username
+   password
+  Activities
+   name
+   user id
+  Sessions
+   start
+   end
+   activity id
+  Notes
+   note
+   session id // nullable (if is an aggregate note)
+  Aggregate Notes
+   note id
+   activity id
+   date
+   type // day, week, month
+
+
+   
+   
