@@ -1,8 +1,8 @@
 <form class="form-horizontal">
   <div class="control-group">
-    <label class="control-label" for="inputUser">Username</label>
+    <label class="control-label" for="inputUsername">Username</label>
     <div class="controls">
-      <input type="text" id="inputEmail">
+      <input type="text" id="inputUsername">
     </div>
   </div>
   <div class="control-group">
@@ -13,24 +13,24 @@
   </div>
   {{#if isNew}}
   <div class="control-group">
-    <label class="control-label" for="inputPasswordConfirm">Confirm Password</label>
+    <label class="control-label" for="inputConfirmPassword">Confirm Password</label>
     <div class="controls">
-      <input type="password" id="inputPasswordConfirm">
-    </div>
-  </div>
-  {{else}}
-  <div class="control-group">
-    <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox" checked> Stay logged in forever
-      </label>
+      <input type="password" id="inputConfirmPassword">
     </div>
   </div>
   {{/if}}
   <div class="control-group">
     <div class="controls">
+      <label class="checkbox">
+        <input id="loginForever" type="checkbox" checked> Stay logged in forever
+      </label>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
       {{#if isNew}}
-        <button id="createUser" class="btn">Start</button>
+        <button id="createUser" class="btn">Create user</button>
+        <button id="back" class="btn btn-link">Back</button>
         {{else}}
         <button id="signIn" class="btn">Sign in</button>
         <button id="new" class="btn btn-link">New?</button>

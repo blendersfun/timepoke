@@ -10,6 +10,7 @@ define(["text!templates/page.html", "backbone", "handlebars"], function (pageHtm
         },
         toggleNav: function (show) {
             this.$el.find("#main-navbar .nav").toggle(show);
+            this.$el.find("#tagline").toggle(!show);
         },
         show: function (newView) {
             $('body').append(this.$el);

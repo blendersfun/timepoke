@@ -9,17 +9,21 @@ var libBase = "../../../lib/";
 requirejs.config({
     baseUrl: "src/js",
     paths: {
-        "jquery":     libBase + "jquery-1.8.3",
-        "backbone":   libBase + "backbone",
-        "underscore": libBase + "underscore",
-        "handlebars": libBase + "handlebars-1.0.rc.1",
-        "text":       libBase + "require-text",
-        "domReady":   libBase + "require-domReady",
-        "bootstrap":  libBase + "bootstrap/js/bootstrap"
+        "jquery":        libBase + "jquery-1.8.3",
+        "jquery.cookie": libBase + "jquery.cookie",
+        "backbone":      libBase + "backbone",
+        "underscore":    libBase + "underscore",
+        "handlebars":    libBase + "handlebars-1.0.rc.1",
+        "text":          libBase + "require-text",
+        "domReady":      libBase + "require-domReady",
+        "bootstrap":     libBase + "bootstrap/js/bootstrap"
     },
     shim: {
         "jquery": {
             exports: "$"
+        },
+        "jquery.cookie": {
+            deps: ["jquery"]
         },
         "underscore": {
             exports: "_"

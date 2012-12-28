@@ -1,7 +1,10 @@
 define(["app"], function (app) {
     var home = {
         route: function () {
-            console.log(this);
+            var View = Backbone.View.extend();
+            var view = new View();
+            view.setElement($('<div>Woot town.</div>'));
+            app.trigger("show", view);
         }
     };
     _.extend(home, Backbone.Events);
